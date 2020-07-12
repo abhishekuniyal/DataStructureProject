@@ -95,48 +95,82 @@ public class LinkedList<E> {
 		Node<E> preToLast = null;
 
 		while (curr != null) {
-			if(curr.next == last)
+			if (curr.next == last)
 				break;
 			curr = curr.next;
 		}
-		
+
 		preToLast = curr;
 		last = preToLast;
 		preToLast.next = null;
 
 	}
-	
-	public void printLast(){
-		System.out.println("Last is :::"+last.value);
+
+	public void printLast() {
+		System.out.println("Last is :::" + last.value);
 	}
 
 	public int size() {
-		Node<E> curr =  first;
+		Node<E> curr = first;
 		int size = 0;
-		while(curr != null) {
+		while (curr != null) {
 			curr = curr.next;
 			size++;
 		}
 		return size;
 	}
 
-	public<E> E[] toArray() {
+	public <E> E[] toArray() {
 		E arr[] = (E[]) new Object[size()];
 		int index = 0;
-		
+
 		Node curr = first;
-		
-		while(curr != null ) {
-			arr[index++] = (E)curr.value;
+
+		while (curr != null) {
+			arr[index++] = (E) curr.value;
 			curr = curr.next;
 		}
 		return arr;
 	}
 
 	public void reverse() {
-		// TODO Auto-generated method stub
+		// f       l
 		// 10->20->30
-		
+		// p    c   n
+		Node previous = first;
+		Node current = first.next;
+
+		while (current != null) {
+			Node next = current.next;
+			current.next = previous;
+
+			previous = current;
+			current = next;
+		}
+		last = first;
+		last.next = null;
+		first = previous;
+	}
+
+	public E findKthNodeFromEnd(int k) {
+		// 1 -->2 --> 3-->4
+		// c
+		if (k <= 0 || k > size())
+			throw new IllegalArgumentException();
+
+		Node current = first;
+		Node next = current;
+
+		while (k > 0) {
+			next = next.next;
+			k--;
+		}
+
+		while (next != null) {
+			current = current.next;
+			next = next.next;
+		}
+		return (E) current.value;
 	}
 
 }

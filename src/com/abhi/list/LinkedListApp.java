@@ -12,23 +12,23 @@ public class LinkedListApp {
 		list.addLast(20);
 		list.addLast(30);
 
-		list.print();
-		list.printLast();
+//		list.print();
+//		list.printLast();
 		
-		System.out.println(list.indexOf(10));
-		System.out.println(list.contains(40));
+//		System.out.println(list.indexOf(10));
+//		System.out.println(list.contains(40));
 		
 		//list.removeFirst();
 		//list.printLast();
 		
 		//list.removeLast();
 		//list.removeLast();
-		list.printLast();
-		list.print();
+//		list.printLast();
+//		list.print();
 		
-		System.out.println(list.size());
+//		System.out.println(list.size());
 		
-		System.out.println(Arrays.toString(list.toArray()));
+//		System.out.println(Arrays.toString(list.toArray()));
 
 		/*
 		LinkedList<String> liString = new LinkedList();
@@ -39,9 +39,11 @@ public class LinkedListApp {
 		System.out.println(liString.indexOf("B"));
 		System.out.println(liString.contains("C"));
 */
+		System.out.println("Reverse the list");
+	//	list.reverse();
+		list.print();
 		
-		list.reverse();
-		
+		System.out.println(list.findKthNodeFromEnd(4));
 		
 	}
 	
